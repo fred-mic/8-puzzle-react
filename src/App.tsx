@@ -74,12 +74,26 @@ function App() {
     setGameState("solving");
     setSolutionPath(null);
 
+    const apiToken = import.meta.env.VITE_API_TOKEN;
+
+    if (!apiToken) {
+        alert("API Token is not configured in the client application.");
+        setGameState("idle");
+        return;
+    }
+
     try {
       const response = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiToken}` 
+        },
         body: JSON.stringify({ state: board }),
       });
+      if (response.status === 401) {
+        throw new Error("Authentication failed. Please check the API token.");
+      }
       if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
       const data = await response.json();
       
