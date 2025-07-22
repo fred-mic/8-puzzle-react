@@ -8,7 +8,7 @@ interface PuzzleBoardProps {
 
 export function PuzzleBoard({ board, onTileClick, isSolved }: PuzzleBoardProps) {
   return (
-    <div className="grid w-full grid-cols-3 gap-2 rounded-xl bg-black p-2 md:gap-3 md:p-3">
+    <div className="grid w-full grid-cols-3 gap-2 bg-black p-1 md:gap-3 md:p-2">
       {board.map((num, index) => (
         <Tile
           key={index}

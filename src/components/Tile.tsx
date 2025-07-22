@@ -17,14 +17,14 @@ export function Tile({ num, onClick, isSolved }: TileProps) {
       // Animate between these styles based on the 'isSolved' state
       animate={isSolved ? "solved" : "default"}
       className={cn(
-        "flex aspect-square select-none items-center justify-center rounded-lg border-2 border-red-500 bg-gray-200 text-4xl font-bold text-red-500 shadow-md transition-opacity duration-300 md:text-5xl",
+        "flex aspect-square select-none items-center justify-center border-2 bg-gray-200 text-4xl font-bold text-red-500 shadow-md transition-opacity duration-300 md:text-5xl",
         isEmpty
           ? "cursor-default opacity-0" // The empty tile is invisible
           : "cursor-pointer hover:bg-gray-300 active:scale-95",
       )}
       // Define animation variants
       variants={{
-        default: { scale: 1, backgroundColor: "#E5E7EB" }, // light gray
+        default: { scale: 1.05 }, // light gray
         solved: { scale: 1.05, backgroundColor: "#4ADE80" }, // green
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}

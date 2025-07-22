@@ -136,7 +136,7 @@ function App() {
           />
         </div>
 
-        <div className="relative w-full p-3">
+        <div className="relative w-full p-1">
           <div className="flex items-center justify-center p-2 gap-4">
             <Button
               onClick={handleSolve}

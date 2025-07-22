@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant hover (&:hover);
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -71,21 +71,21 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
   color: #242424;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
+  background-color: var(--color-gray-200);
   cursor: pointer;
   transition: border-color 0.25s;
   width: 50%;
   height: 102px;
+  border-radius: 0 !important;
 }
 button:hover {
   border-color: #646cff;
+  background-color: var(--color-gray-300);
 }
 button:focus,
 button:focus-visible {
