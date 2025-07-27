@@ -103,7 +103,7 @@ function App() {
 
     } catch (error) {
       console.error("Failed to fetch solution:", error);
-      alert("Could not connect to the solver API. Please ensure it is running at http://127.0.0.1:8000.");
+      alert("Could not connect to the solver API. Please ensure it is running at " + API_URL);
       setGameState("idle");
     }
   };

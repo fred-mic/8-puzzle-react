@@ -24,10 +24,12 @@ export function Tile({ num, onClick, isSolved }: TileProps) {
       )}
       // Define animation variants
       variants={{
-        default: { scale: 1.05 }, // light gray
+        default: { }, 
         solved: { scale: 1.05, backgroundColor: "#4ADE80" }, // green
       }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ 
+        duration: 1,
+        ease: "easeInOut" }}
     >
       {!isEmpty && num}
     </motion.div>
