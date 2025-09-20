@@ -8,7 +8,7 @@ type SolutionPath = number[][];
 
 const GRID_SIZE = 3;
 const GOAL_STATE = [...Array(8).keys()].map((i) => i + 1).concat(0);
-const API_URL = "http://127.0.0.1:8000/solve";
+const API_URL = "http://13.60.29.201:8000/solve";
 
 function App() {
   const [board, setBoard] = useState<number[]>(GOAL_STATE);
