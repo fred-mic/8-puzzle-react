@@ -123,12 +123,15 @@ function App() {
 
 
   return (
-    <main className="flex w-full max-w-sm flex-col gap-6">
- <p className="text-center text-sm text-gray-400">
-          {gameState === 'solved' ? "Congratulations!" : "Click a tile to move it."}
-        </p>
+    <main className="flex w-full max-w-[min(92vw,30rem)] flex-col gap-5 sm:gap-7">
+        <header className="text-center">
+          <h1 className="game-title">8&#8209;Puzzle</h1>
+          <p className={gameState === 'solved' ? "status status-win" : "status"}>
+            {gameState === 'solved' ? "🎉 Congratulations!" : "Tap a tile next to the gap to slide it."}
+          </p>
+        </header>
         {/* The Puzzle Board */}
-        <div className="relative w-full">
+        <div className="board-stage relative w-full">
           <PuzzleBoard 
             board={board} 
             onTileClick={handleTileClick}
@@ -137,11 +140,11 @@ function App() {
         </div>
 
         <div className="relative w-full p-1">
-          <div className="flex items-center justify-center p-2 gap-4">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
             <Button
               onClick={handleSolve}
               disabled={gameState !== "idle" && gameState !== "solved"}
-              className="w-32 bg-red-600 text-lg hover:bg-red-700"
+              className="glossy-btn glossy-btn-primary"
             >
               {/* Dynamic Button Text */}
               {gameState === "solving" && "Solving..."}
@@ -154,7 +157,7 @@ function App() {
               onClick={shuffleBoard}
               disabled={gameState === "animating" || gameState === "solving"}
               variant="secondary"
-              className="w-32 text-lg"
+              className="glossy-btn glossy-btn-secondary"
             >
               New Game
             </Button>

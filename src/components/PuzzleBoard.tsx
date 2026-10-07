@@ -83,7 +83,7 @@ export function PuzzleBoard({ board, onTileClick, isSolved }: PuzzleBoardProps) 
   return (
     <div 
       ref={boardRef}
-      className="grid w-full grid-cols-3 gap-1 bg-gray-500 p-1"
+      className="board-3d grid w-full grid-cols-3 gap-2 p-2 sm:gap-3 sm:p-3"
       onKeyDown={handleKeyDown}
       onFocus={handleBoardFocus}
       tabIndex={0}

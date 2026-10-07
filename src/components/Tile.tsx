@@ -31,17 +31,19 @@ export const Tile = forwardRef<HTMLDivElement, TileProps>(
         tabIndex={0}
         // Animate between these styles based on the 'isSolved' state
         animate={isSolved ? "solved" : "default"}
+        style={{ ["--tile-hue" as string]: String((num * 41 + 290) % 360) }}
         className={cn(
-          "flex aspect-square select-none items-center justify-center border-2 bg-gray-200 text-4xl font-bold text-red-500 shadow-md transition-opacity duration-300 md:text-5xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+          "tile-3d flex aspect-square select-none items-center justify-center border-2 bg-gray-200 text-4xl font-bold text-red-500 shadow-md transition-opacity duration-300 md:text-5xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
           isEmpty
-            ? "cursor-default opacity-0" // The empty tile is invisible
+            ? "tile-empty cursor-default opacity-0" // The empty tile is invisible
             : "cursor-pointer hover:bg-gray-300 active:scale-95",
+          isSolved && !isEmpty && "tile-solved",
           isFocused && !isEmpty && "ring-2 ring-blue-500 ring-offset-2"
         )}
         // Define animation variants
         variants={{
           default: { }, 
-          solved: { scale: 1.05, backgroundColor: "#4ADE80" }, // green
+          solved: { scale: [1, 1.08, 1.03] },
         }}
         transition={{ 
           duration: 1,
